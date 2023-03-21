@@ -11,7 +11,7 @@ const flightsController = require('../controllers/flightsController')
 router.get('/', flightsController.index)
 
 // Setup a "new" route for creating flight
-// router.get('/new', flightsController.new)
+router.get('/new', flightsController.new)
 
 // router.delete('/clear', flightsController.delete)
 
@@ -24,7 +24,7 @@ router.get('/', flightsController.index)
 // router.post('/seed', flightsController.seed)
 
 // Setup a "create" route for adding flight data
-// router.post('/', flightsController.create)
+router.post('/', flightsController.create)
 
 // Setup a "edit" route for editing a flight
 // router.get('/:id/edit', flightsController.edit)
