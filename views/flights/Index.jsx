@@ -1,10 +1,12 @@
 import React from 'react'
+import DefaultLayout from '../layouts/DefaultLayout'
 // import DefaultLayout from '../layouts/DefaultLayout'
 
 function Index(props) {
 
-
     return (
+        
+             <DefaultLayout>
                <div >
                 <h1>Flights Index View </h1>
               
@@ -13,7 +15,9 @@ function Index(props) {
                 </ul>
 
                 <a href='/flight/new'> Add new Flight</a>
+
                </div>
+            </DefaultLayout>
           
     )
 }

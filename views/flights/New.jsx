@@ -1,6 +1,10 @@
 import React from 'react'
+import DefaultLayout from '../layouts/DefaultLayout';
+
 function New(props){
+
     return(
+        <DefaultLayout>
         <div>
         <h1>New flights Log</h1>
         <form action="/flight" method="POST">
@@ -20,6 +24,7 @@ function New(props){
           <button>Submit</button>
         </form>
       </div>
+      </DefaultLayout>
     )
 }
 
