@@ -8,8 +8,7 @@ const flightsSchema = new Schema({
   },
 
     flightNo: {type: Number, min: 10, max: 9999},
-    departs: {type: Date, required: true},
-
+    departs: { type: Date, default: new Date(new Date().setFullYear(new Date().getFullYear() + 1)) }
     // ts: {type: Date, required: true},
 })
 

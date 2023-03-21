@@ -1,5 +1,5 @@
 import React from 'react'
-function New(){
+function New(props){
     return(
         <div>
         <h1>New flights Log</h1>
@@ -14,7 +14,7 @@ function New(){
           <br />
           <br />        <label htmlFor="dept">Departs:</label>
           <br />
-          <input type="datetime-local" id="dept" name="departs" />
+          <input type="datetime-local" id="dept" name="departs" defaultValue={props.departsDate} />
           <br />
           <br />
           <button>Submit</button>
