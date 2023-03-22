@@ -16,9 +16,9 @@ function Index(props) {
                 <ul>
                     {flight.map((item, index) =>
                         (item.departs < Date.now()) ?
-                            <span> <li key={index}>{item.airline} <br></br>{item.flightNo}<br></br> {item.departs.toDateString()} </li> </span>
+                            <span> <li key={index}> <a href={`/flight/${item._id}`}>{item.airline} <br></br>{item.flightNo}</a><br></br> {item.departs.toDateString()} </li> </span>
                             :
-                            <li key={index}>{item.airline} <br></br>{item.flightNo}<br></br> {item.departs.toDateString()} </li>)
+                            <li key={index}><a href={`/flight/${item._id}`}>{item.airline} <br></br>{item.flightNo}</a><br></br> {item.departs.toDateString()} </li>)
                     }
                 </ul>
           

@@ -23,11 +23,16 @@ module.exports.new = async (req, res) => {
 	res.render('flights/New', {departsDate});
 
 }
-// Show added flights 
+// Those anonymous callback functions now have names: "index" and "show"
 module.exports.show = async (req, res) => {
-    res.render('flights/Show')
-
-}
+    try {
+      const flight = await Flight.findById(req.params.id);
+      res.render("flights/Show", { flight });
+    } catch (err) {
+      console.log(err);
+      res.send(err.message);
+    }
+  };
 // Create to add new flights 
 module.exports.create = async (req, res) => {
  try {
