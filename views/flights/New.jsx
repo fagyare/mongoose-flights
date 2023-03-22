@@ -1,11 +1,11 @@
 import React from 'react'
 import DefaultLayout from '../layouts/DefaultLayout';
 
-function New(props){
+function New(props) {
 
-    return(
-        <DefaultLayout>
-        <div>
+  return (
+    <DefaultLayout>
+      <div>
         <h1>New flights Log</h1>
         <form action="/flight" method="POST">
           <label htmlFor="air">Airline:</label>
@@ -21,11 +21,23 @@ function New(props){
           <input type="datetime-local" id="dept" name="departs" defaultValue={props.departsDate} />
           <br />
           <br />
+          <label>Airport: </label>
+          <select name='airport'>
+            <option>AUS</option>
+            <option>DAL</option>
+            <option>LAX</option>
+            <option>SAN</option>
+            <option>SEA</option>
+          </select>
+          <br />
+
+          <br />
+
           <button>Submit</button>
         </form>
       </div>
-      </DefaultLayout>
-    )
+    </DefaultLayout>
+  )
 }
 
 export default New; 

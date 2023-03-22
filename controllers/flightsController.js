@@ -23,6 +23,7 @@ module.exports.new = async (req, res) => {
 	res.render('flights/New', {departsDate});
 
 }
+// Show added flights 
 module.exports.show = async (req, res) => {
     res.render('flights/Show')
 
@@ -38,3 +39,4 @@ module.exports.create = async (req, res) => {
 res.redirect('/flight')
 
 }
+
