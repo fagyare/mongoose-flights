@@ -21,13 +21,17 @@ function New(props) {
           <input type="datetime-local" id="dept" name="departs" defaultValue={props.departsDate} />
           <br />
           <br />
-          <label>Airport: </label>
+          
+          <label>Airport!!!!: </label>
+
+
           <select name='airport'>
-            <option>AUS</option>
-            <option>DAL</option>
-            <option>LAX</option>
-            <option>SAN</option>
-            <option>SEA</option>
+            <option selected >Select Airport</option>
+            <option value='AUS' >AUS</option>
+            <option value='DAL' >DAL</option>
+            <option value= 'LAX' >LAX</option>
+            <option value= 'SAN' > SAN</option>
+            <option value= 'SEA' > SEA</option>
           </select>
           <br />
 
