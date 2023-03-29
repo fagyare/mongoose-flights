@@ -1,12 +1,45 @@
 nav {
-    border: 3px solid yellow;
-    width: 400px;
+    border: 3px solid black;
+    width: 500px;
     display: flex;
     justify-content: space-around;
-    background-color: pink;
+    /* background-color: rgb(55, 100, 70); */
 
 }
 
 span {
     color: red;
+}
+body {
+    background-color:rgb(50, 86, 88);
+    margin: 15px solid black;
+    border: 10px;
+}
+
+.index {
+    text-align: center;
+}
+
+.header-index {
+    color: whitesmoke;
+}
+
+.btn-index {
+    background-color: peachpuff;
+    border-radius: 8px;
+}
+
+.table {
+    margin: 10px solid blue;
+    text-align: center;
+    /* border-radius: 9px; */
+}
+
+.table-header {
+    background-color: rgb(55, 100, 70);
+    color: whitesmoke;
+}
+
+.t-body{
+    background-color: bisque;
 }

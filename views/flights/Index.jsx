@@ -12,8 +12,8 @@ function Index(props) {
     return (
 
         <DefaultLayout>
-            <div >
-                <h1>Flights Index View </h1>
+            <div className='index' >
+                <h3 className='header-index'>Flights Index View </h3>
 
                 {/* <ul>
                     {flight.map((item, index) =>
@@ -25,17 +25,17 @@ function Index(props) {
                 </ul> */}
 
 <div>
-                    <table>
+                    <table className='table'>
                         <thead>
                             <tr className="table-header">
                                 <th>AIRLINE</th>
                                 <th>FLIGHT NO.</th>
                                 <th>DATE</th>
                                 <th>TIME</th>
-                                <th></th>
+                                <th>DETAILS</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className='t-body'>
                             {props.flight?.map((flight, index) => 
                                 <tr style={flight.departs.getTime() < currentDate.getTime() ? {backgroundColor: '#FF0000'} : {backgroundColor: 'none'}} key={index}>
                                     <td>{flight.airline}</td>
@@ -55,12 +55,12 @@ function Index(props) {
                     <button className="btn-index">ADD NEW FLIGHT</button>
                 </form>
 
-                <form className="form-index" action="/flight/clear?_method=DELETE" method="POST">
+                {/* <form className="form-index" action="/flight/clear?_method=DELETE" method="POST">
                     <button className="btn-index">CLEAR</button>
-                </form>
+                </form> */}
             </div>
           
-                <a href='/flight/new'> Add new Flight</a>
+                {/* <a href='/flight/new'> Add new Flight</a> */}
 
         </DefaultLayout>
     )

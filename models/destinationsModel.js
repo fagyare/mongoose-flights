@@ -9,7 +9,7 @@ const destinationsSchema = new Schema({
     arrival: {type: Date}
 })
 
-const Destination = mongoose.model('destinations', destinationsSchema)
+const Destination = mongoose.model('destination', destinationsSchema)
 
 module.exports = Destination;
 

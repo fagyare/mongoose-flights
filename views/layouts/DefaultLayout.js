@@ -9,7 +9,7 @@ function DefaultLayout(props) {
             </head>
             <body>
                 <nav>
-                    <a href="/flight/new">ADD FLIGHT</a>
+                    <a href="/flight/new">ADD FLIGHT </a> 
                     <a href="/flight">ALL FLIGHTS</a>
                 </nav>
                 <div>

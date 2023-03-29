@@ -22,7 +22,7 @@ const flightsSchema = new Schema({
     // ts: {type: Date, required: true},
 })
 
-const Flight = mongoose.model('flights', flightsSchema)
+const Flight = mongoose.model('flight', flightsSchema)
 
 module.exports = Flight;
 

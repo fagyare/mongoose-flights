@@ -27,23 +27,24 @@ module.exports.new = async (req, res) => {
 module.exports.show = async (req, res) => {
     // populate replaces the ids with actual documents/objects we can use
     
-    const flight = await Flight.findById(req.params.id).populate('destinations', 'airport')
-    const flightDestinations = await Destination.find({ _id: { $in: flight.destinations}});
-    delete flight.destinations;
-    flight.destinations = flightDestinations;
-    console.log(flightDestinations)
+    const flight = await Flight.findById(req.params.id).populate('destinations')
+    // const flightDestinations = await Destination.find({ _id: { $in: flight.destinations}});
+    // delete flight.destinations;
+    // flight.destinations = flightDestinations;
+    // console.log(flightDestinations)
 
-    console.log('/nTHIS IS FLIGHT')
-    console.log(flight);
-    res.render('flights/Show', {
-        flight: {
-            airline: flight.airline,
-            flightNo: flight.flightNo,
-            departs: flight.departs,
-            airport: flight.airport,
-            destinations: flightDestinations
-        }
-    });
+    // console.log("flightzzzz:" + flight.destinations[0].airport);
+        res.render('flights/Show', {flight} )
+
+    // res.render('flights/Show', {
+    //     flight: {
+    //         airline: flight.airline,
+    //         flightNo: flight.flightNo,
+    //         departs: flight.departs,
+    //         airport: flight.airport,
+    //         destinations: flightDestinations
+    //     }
+    // });
 }
 
 
