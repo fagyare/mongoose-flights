@@ -33,4 +33,18 @@ router.post('/', flightsController.create)
 router.get('/:id', flightsController.show)
 
 
+
+// Extra routes for destination 
+router.post('/:id/destinations', flightsController.createDestination)
+
+router.get('/:id/destinations', flightsController.indexDestination)
+
+router.get('/:id/destinations', flightsController.indexDestination)
+
+router.get('/:id/destinations/:did', flightsController.showDestination)
+
+router.put('/:id/destinations/:did', flightsController.updateDestination)
+
+
+
 module.exports = router;

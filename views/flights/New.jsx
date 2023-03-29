@@ -16,28 +16,34 @@ function New(props) {
           <br />
           <input type="text" id="fno" name="flightNo" />
           <br />
-          <br />        <label htmlFor="dept">Departs:</label>
+          {/* <br />        <label htmlFor="dept">Departs:</label> */}
           <br />
-          <input type="datetime-local" id="dept" name="departs" defaultValue={props.departsDate} />
-          <br />
-          <br />
-          
-          <label>Airport!!!!: </label>
+          {/* <input type="datetime-local" id="dept" name="departs" defaultValue={props.departsDate} /> */}
+         
+
+          <label>Airport: </label>
 
 
-          <select name='airport'>
+          <select id="airport" name='airport'>
             <option selected >Select Airport</option>
             <option value='AUS' >AUS</option>
             <option value='DAL' >DAL</option>
-            <option value= 'LAX' >LAX</option>
-            <option value= 'SAN' > SAN</option>
-            <option value= 'SEA' > SEA</option>
+            <option value='LAX' >LAX</option>
+            <option value='SAN' > SAN</option>
+            <option value='SEA' > SEA</option>
           </select>
           <br />
 
           <br />
 
-          <button>Submit</button>
+          <label htmlFor="dprts">Departs:</label><br />
+          <input type="datetime-local" id="dprts" name="departs" defaultValue={props.departsDate} /><br /><br />
+
+          <button className="btn-destination">SUBMIT</button>
+        </form>
+        <br /><br />
+        <form className="form-index" action="/flight">
+          <button className="btn-index">Back</button>
         </form>
       </div>
     </DefaultLayout>

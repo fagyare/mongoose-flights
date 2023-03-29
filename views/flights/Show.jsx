@@ -1,76 +1,94 @@
-import React from "react";
-import DefaultLayout from "../layouts/DefaultLayout";
+import React from "react"
+import DefaultLayout from '../layouts/DefaultLayout'
 
 function Show(props) {
+    console.log('/n THIS IS PROPS')
+    console.log(props);
+    let airportsDestinations = ['AUS', 'DAL', 'LAX', 'SAN', 'SEA']
 
-    // props.Flight.destination.sort((first, second ) => first.arrival - second.arrival )
+    for (let i = 0; i < props.flight.destinations.length; i++) {
+        const index = airportsDestinations.findIndex(item => item == props.flight.destinations[i].airport)
+        airportsDestinations.splice(index, 1);
+    }
+    console.log(airportsDestinations);
 
+    const currentDate = new Date()
+    // console.log('destinations' + props.item.arrival)
+    const flightDeparture = (new Date(props.flight.departs)).toLocaleString();
+    
     return (
         <DefaultLayout>
-        
-        <h1>Flight Details for {props.flight.airline} Airline</h1>
-        {/* <p>This is my paragraph is a space that will show all details for the clicked {props.flight.airline} Airline flight from the Index page</p> */}
-        <div className="container">
-          <h2>Airline : {props.flight.airline}</h2>
-          <h2>Flight Number : {props.flight.flightNo}</h2>
-          <h2>Departure : {props.flight.departs.toLocaleDateString()} , {props.flight.departs.toLocaleTimeString()}</h2>
-          <h2>Airport : {props.flight.airport}</h2>
-          {/* <h2>Going to : {props.flights.destinations}</h2> */}
-        </div>
+            <div>
+                <h1 className="title">{props.flight.airline} {props.flight.flightNo}</h1>
+                <div className="details-box">
+                    <p>From: {props.flight.airport}</p>
+                    <p>Departs: {flightDeparture}</p>
 
-          {props.flight.destinations.length ?
-          <>
-            <p>Destinations</p>
-            {props.flight.destinations.map((item, index) =>
-              <div className="container" key={index}>
-                <p>Airport: {item.airport}</p>
-                <p>Arrival: {item.departs.toLocaleTimeString()}</p>
-                <p>Arrival: {item.departs.toLocaleDateString()}</p>
+                    {props.flight.destinations.length ?
+                        <>
+                            <p>Destinations:</p>
 
-                <form className="destination-Btn"  action={`/flights/${props.flight._id}/destinations/${item._id}`}>
-                  <button>Edit Destination</button>
-                </form>
+                            {props.flight?.destinations?.map((item, index) =>
+                                <div className="destination-box" key={index}>
+                                    <p>To: {item.airport}</p>
+                                    {/* <p>Arrival: {item.arrival.toLocaleDateString()} at {item.arrival.toLocaleDateString()}</p> */}
+                                    <form className="form-index" action={`/flight/${props.flight._id}/destinations/${item._id}`}>
+                                        <button className="btn-destination">EDIT</button>
+                                    </form>
 
-                <form className="destination-Btn"  action={`/flights/${props.flight._id}/destinations/${item._id}?_method=DELETE`} method="POST">
-                  <button>Delete Destination</button>
-                </form>
-
-              </div>
-            )}
-          </>
-          :
-          <>
-            <p>Destination is to be determined....</p>
-          </>
-        }
-
-                <br />
-                <br />
-                <div >
-                    <form action="/flight" method="POST">
-
-                        <select name='airport'>
-                            <option selected >Select Airport</option>
-                            <option value='AUS' >AUS</option>
-                            <option value='DAL' >DAL</option>
-                            <option value='LAX' >LAX</option>
-                            <option value='SAN' > SAN</option>
-                            <option value='SEA' > SEA</option>
-                        </select>
-                        <br />
-                        <lable></lable>
-                        <input type="datetime-local" id="arrival"
-                            name="arrival" />
-                        <br />
-
-                        <button>Submit</button>
-                    </form>
-                    <a href="/flight">
-                        <button>Back</button>
-                    </a>
+                                    <form className="form-index" action={`/flight/${props.flight._id}/destinations/${item._id}?_method=DELETE`} method="POST">
+                                        <button className="btn-destination">Delete Destination</button>
+                                    </form>
+                                    <br /><br />
+                                </div>
+                            )}
+                        </>
+                        :
+                        <>
+                            Destinations: No Flights at this destination
+                            <br /><br />
+                        </>
+                    }
                 </div>
+
+                <details className="add-destination">
+                    <summary>ADD A DESTINATION</summary>
+                    <br /><br />
+                    <form action={`/flight/${props.flight._id}/destinations`} method="POST">
+                        <label htmlFor="airport">Select Airport:</label><br />
+                        <select id="airport" name="airport">
+                            {airportsDestinations.map((destination, index) => 
+                                <div key={index}>
+                                    <option value={destination}>{destination}</option>
+                                </div>
+                            )}
+                        </select>
+
+                        <br /><br />
+
+                        <label htmlFor="arrival">Arrival:</label><br />
+                        <input type="datetime-local" id="arrival" name="arrival" defaultValue={props.departsDate} /><br /><br />
+                        <button className="btn-destination">Add Destination</button>
+                    </form>
+                </details>
+
+                <br /><br />
+
+                <form className="form-index" action="/flight">
+                    <button className="btn-index">BACK</button>
+                </form>
+
+                <form className="form-index" action={`/flight/${props.flight._id}/edit`}>
+                    <button className="btn-index">Edit Flight</button>
+                </form>
+
+                <form className="form-index" action={`/flight/${props.flight._id}?_method=DELETE`} method="POST">
+                    <button className="btn-index">Delete Flight </button>
+                </form>
+            </div>
         </DefaultLayout>
-    );
+
+    )
 }
 
 export default Show;
